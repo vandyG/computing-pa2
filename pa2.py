@@ -100,7 +100,15 @@ gather_engagement(
 
 
 # %%
-def clear_zeros(reacts_2D):
+def clear_zeros(reacts_2D: List[List[int]]) -> List[List[int]]:
+    """Removes all occurrences of zero from a 2D list.
+
+    Args:
+        reacts_2D:  A 2D list, potentially containing zeros.
+
+    Returns:
+        A new 2D list with all zeros removed.
+    """
     # Initialize a list to store cleared engagement data
     cleared_reacts = []
 
@@ -117,3 +125,18 @@ def clear_zeros(reacts_2D):
             cleared_reacts.append(cleaned_data)
 
     return cleared_reacts
+
+
+# %%
+user_reacts = [[4, 9, 0, 0], [1, 2, 0, 5, 8], [17, 2, 0]]
+clear_zeros(user_reacts)  # [[4, 9], [1, 2, 5, 8], [17, 2]]
+
+# %%
+user_reacts = [[1, 2, 0], [0, 0, 0], [17, 2, 4, 0]]
+clear_zeros(user_reacts)  # [[1, 2], [17, 2, 4]]
+
+# %%
+user_reacts = [[40, 3], [35, 7]]
+clear_zeros(user_reacts)  # [[40, 3], [35, 7]]
+
+# %%
