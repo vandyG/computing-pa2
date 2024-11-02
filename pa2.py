@@ -186,3 +186,20 @@ form_reactions_list(react1, react2)  # [['wow', 68], ['angry', 18], ['comment', 
 react1 = {"angry": 54, "love": 11}
 react2 = {"share": 21}
 form_reactions_list(react1, react2)  # [['angry', 54], ['love', 11], ['share', 21]]
+
+
+# %%
+def form_reactions_dict(reacts_2D):
+    # Initialize dictionary to store reactions
+    reactions_dict = {}
+    total_count = 0  # To keep track of total reactions count
+
+    # Populate the dictionary and compute total count
+    for reaction, count in reacts_2D:
+        reactions_dict[reaction] = count
+        total_count += count
+
+    # Add total count entry
+    reactions_dict["total"] = total_count
+
+    return reactions_dict
