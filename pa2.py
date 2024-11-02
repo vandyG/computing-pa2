@@ -139,4 +139,25 @@ clear_zeros(user_reacts)  # [[1, 2], [17, 2, 4]]
 user_reacts = [[40, 3], [35, 7]]
 clear_zeros(user_reacts)  # [[40, 3], [35, 7]]
 
+
 # %%
+def form_reactions_list(react_dict1, react_dict2):
+    # Initialize a dictionary to store the combined reactions
+    combined_reacts = {}
+
+    # Combine both dictionaries
+    for key, value in react_dict1.items():
+        combined_reacts[key] = value
+
+    for key, value in react_dict2.items():
+        if key in combined_reacts:
+            combined_reacts[key] += value
+        else:
+            combined_reacts[key] = value
+
+    # Convert dictionary to 2D list format
+    reactions_list = []
+    for key, value in combined_reacts.items():
+        reactions_list.append([key, value])
+
+    return reactions_list
