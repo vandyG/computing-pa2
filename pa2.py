@@ -56,7 +56,7 @@ filter_popular([], ["alien", "tomato2", "simon23"], 50)  # []
 
 
 # %%
-def gather_engagement(names: List[str], reacts, grouping):
+def gather_engagement(names: List[str], reacts: List[int], grouping: List[int]):
     """Groups engagement data (likes, comments, etc.) for each user based on a grouping list.
 
     Args:
