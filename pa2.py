@@ -1,9 +1,7 @@
 # %%
 
-from typing import List
 
-
-def filter_popular(reacts_2D: List[List[int]], names: List[str], threshold: int) -> List[str]:
+def filter_popular(reacts_2D, names, threshold) -> list:
     """Filters a list of names to only include those whose total engagement (likes, etc.) meets a given threshold.
 
     Args:
@@ -56,7 +54,7 @@ filter_popular([], ["alien", "tomato2", "simon23"], 50)  # []
 
 
 # %%
-def gather_engagement(names: List[str], reacts: List[int], grouping: List[int]):
+def gather_engagement(names, reacts, grouping) -> list:
     """Groups engagement data (likes, comments, etc.) for each user based on a grouping list.
 
     Args:
@@ -100,7 +98,7 @@ gather_engagement(
 
 
 # %%
-def clear_zeros(reacts_2D: List[List[int]]) -> List[List[int]]:
+def clear_zeros(reacts_2D) -> list:
     """Removes all occurrences of zero from a 2D list.
 
     Args:
@@ -141,7 +139,7 @@ clear_zeros(user_reacts)  # [[40, 3], [35, 7]]
 
 
 # %%
-def form_reactions_list(react_dict1, react_dict2):
+def form_reactions_list(react_dict1, react_dict2) -> list:
     # Initialize a dictionary to store the combined reactions
     combined_reacts = {}
 
@@ -161,3 +159,23 @@ def form_reactions_list(react_dict1, react_dict2):
         reactions_list.append([key, value])
 
     return reactions_list
+
+
+# %%
+react1 = {"like": 5, "comment": 10, "share": 3}
+react2 = {"love": 10, "like": 5, "wow": 2}
+form_reactions_list(
+    react1, react2
+)  # [['like', 10], ['comment', 10], ['share', 3], ['love', 10], ['wow', 2]]
+
+# %%
+react1 = {"wow": 34, "angry": 9, "comment": 1, "sad": 42}
+react2 = {"wow": 34, "angry": 9, "comment": 1, "sad": 42}
+form_reactions_list(react1, react2)  # [['wow', 68], ['angry', 18], ['comment', 2], ['sad', 84]]
+
+# %%
+react1 = {"angry": 54, "love": 11}
+react2 = {"share": 21}
+form_reactions_list(react1, react2)  # [['angry', 54], ['love', 11], ['share', 21]]
+
+# %%
