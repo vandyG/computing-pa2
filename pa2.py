@@ -140,6 +140,15 @@ clear_zeros(user_reacts)  # [[40, 3], [35, 7]]
 
 # %%
 def form_reactions_list(react_dict1, react_dict2) -> list:
+    """Combines two dictionaries of reactions and returns a list of lists.
+
+    Args:
+        react_dict1: The first dictionary of reactions.
+        react_dict2: The second dictionary of reactions.
+
+    Returns:
+        A list of lists, where each sublist contains the reaction type and its combined count from both input dictionaries.
+    """
     # Initialize a dictionary to store the combined reactions
     combined_reacts = {}
 
@@ -177,5 +186,3 @@ form_reactions_list(react1, react2)  # [['wow', 68], ['angry', 18], ['comment', 
 react1 = {"angry": 54, "love": 11}
 react2 = {"share": 21}
 form_reactions_list(react1, react2)  # [['angry', 54], ['love', 11], ['share', 21]]
-
-# %%
