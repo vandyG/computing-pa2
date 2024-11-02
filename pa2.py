@@ -189,7 +189,15 @@ form_reactions_list(react1, react2)  # [['angry', 54], ['love', 11], ['share', 2
 
 
 # %%
-def form_reactions_dict(reacts_2D):
+def form_reactions_dict(reacts_2D) -> dict:
+    """Converts a 2D list of reactions and their counts into a dictionary.
+
+    Args:
+        reacts_2D: A 2D list where each sublist contains a reaction type and its count.
+
+    Returns:
+        A dictionary where keys are reaction types and values are their corresponding counts. The dictionary also includes a "total" key with the sum of all reaction counts.
+    """
     # Initialize dictionary to store reactions
     reactions_dict = {}
     total_count = 0  # To keep track of total reactions count
@@ -203,3 +211,19 @@ def form_reactions_dict(reacts_2D):
     reactions_dict["total"] = total_count
 
     return reactions_dict
+
+
+# %%
+form_reactions_dict(
+    [["like", 10], ["comment", 10], ["share", 3], ["love", 10], ["wow", 2]]
+)  # {'like': 10, 'comment': 10, 'share': 3, 'love': 10, 'wow': 2, 'total': 35}
+
+# %%
+form_reactions_dict(
+    [["comment", 21], ["share", 26], ["love", 10], ["like", 5], ["wow", 2]]
+)  # {'comment': 21, 'share': 26, 'love': 10, 'like': 5, 'wow': 2, 'total': 64}
+
+# %%
+form_reactions_dict(
+    [["wow", 34], ["angry", 9], ["comment", 1], ["sad", 43], ["haha", 11], ["love", 2]]
+)  # {'wow': 34, 'angry': 9, 'comment': 1, 'sad': 43, 'haha': 11, 'love': 2, 'total': 100}
